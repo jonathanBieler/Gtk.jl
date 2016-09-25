@@ -16,9 +16,9 @@ if  libgtk_version >= v"3"
   end
   GtkFileFilterInfo(; filename = nothing, uri = nothing, display_name = nothing, mime_type = nothing) =
     GtkFileFilterInfo(
-      ( (isa(filename, AbstractString)? Gtk.GtkFileFilterFlags.FILENAME:0) | 
+      ( (isa(filename, AbstractString)? Gtk.GtkFileFilterFlags.FILENAME:0) |
         (isa(uri, AbstractString)? Gtk.GtkFileFilterFlags.URI:0) |
-        (isa(display_name, AbstractString)? Gtk.GtkFileFilterFlags.DISPLAY_NAME:0) | 
+        (isa(display_name, AbstractString)? Gtk.GtkFileFilterFlags.DISPLAY_NAME:0) |
         (isa(mime_type, AbstractString)? Gtk.GtkFileFilterFlags.MIME_TYPE:0) ),
       isa(filename, AbstractString)? pointer(filename): C_NULL,
       isa(uri, AbstractString)? pointer(uri): C_NULL,
@@ -62,6 +62,12 @@ end
 setproperty!(w, :title, "Window 2")
 @test getproperty(w, :title, AbstractString) == "Window 2"
 
+visible(w,false)
+@test visible(w) == false
+visible(w,true)
+@test visible(w) == true
+destroy(w)
+
 destroy(w); yield()
 @test !getproperty(w, :visible, Bool)
 w=WeakRef(w)
@@ -82,7 +88,6 @@ if  libgtk_version >= v"3.16.0"
   unmaximize(w)
   sleep(1)
   @test getproperty(w, :is_maximized, Bool) == false
-  destroy(w)
 end
 end
 
