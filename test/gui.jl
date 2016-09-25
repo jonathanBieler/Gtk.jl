@@ -88,6 +88,7 @@ if  libgtk_version >= v"3.16.0"
   unmaximize(w)
   sleep(1)
   @test getproperty(w, :is_maximized, Bool) == false
+  destroy(w)
 end
 end
 
