@@ -103,6 +103,7 @@ end
 @gtktype GtkTextTag
 @gtktype GtkToolbar
 @gtktype GtkToolItem
+@gtktype GtkTooltip
 @gtktype GtkToolButton
 @gtktype GtkToggleToolButton
 @gtktype GtkMenuToolButton

@@ -8,7 +8,7 @@ export new, width, height, #minsize, maxsize
     maximize, unmaximize, complete, user_action,
     keyval, prev, up, down, popup,
     convert_iter_to_child_iter, convert_child_iter_to_iter,
-    pulse
+    pulse, text
     #property, margin, padding, align
     #raise, focus, destroy, enabled
 

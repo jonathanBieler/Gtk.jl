@@ -66,6 +66,7 @@ const ToggleToolButton = GtkToggleToolButton
 const ToolButton = GtkToolButton
 const ToolItem = GtkToolItem
 const Toolbar = GtkToolbar
+const Tooltip = GtkTooltip
 const TreeIter = GtkTreeIter
 const TreeModelFilter = GtkTreeModelFilter
 const TreeModelSort = GtkTreeModelSort
