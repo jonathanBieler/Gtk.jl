@@ -18,7 +18,15 @@ You can specify multiple match types for a single filter by separating the patte
 You can alternatively specify MIME types, or if no specification is provided it defaults to types supported by `GdkPixbuf`.
 The generic specification of a filter is
 ```julia
-@FileFilter(; name = nothing, pattern = "", mimetype = "")
+FileFilter(; name = nothing, pattern = "", mimetype = "")
+```
+
+If on the other hand you want to choose a folder instead of a file, set the `action` to `GtkFileChooserAction.SELECT_FOLDER`:
+```julia
+dir = open_dialog("Select Dataset Folder", action=GtkFileChooserAction.SELECT_FOLDER)
+if isdir(dir)
+   # do something with dir
+end
 ```
 
 Here are some examples:
@@ -27,9 +35,9 @@ open_dialog("Pick a file")
 open_dialog("Pick some files", select_multiple=true)
 open_dialog("Pick a file", Null(), ("*.jl",))
 open_dialog("Pick some text files", GtkNullContainer(), ("*.txt,*.csv",), select_multiple=true)
-open_dialog("Pick a file", Null(), (@FileFilter(mimetype="text/csv"),))
-open_dialog("Pick an image file", GtkNullContainer(), ("*.png", "*.jpg", @FileFilter("*.png,*.jpg", name="All supported formats")))
-open_dialog("Pick an image file", GtkNullContainer(), (@FileFilter(name="Supported image formats"),))
+open_dialog("Pick a file", Null(), (FileFilter(mimetype="text/csv"),))
+open_dialog("Pick an image file", GtkNullContainer(), ("*.png", "*.jpg", FileFilter("*.png,*.jpg", name="All supported formats")))
+open_dialog("Pick an image file", GtkNullContainer(), (FileFilter(name="Supported image formats"),))
 
-save_dialog("Save as...", Null(), (@FileFilter("*.png,*.jpg", name="All supported formats"), "*.png", "*.jpg"))
+save_dialog("Save as...", Null(), (FileFilter("*.png,*.jpg", name="All supported formats"), "*.png", "*.jpg"))
 ```
