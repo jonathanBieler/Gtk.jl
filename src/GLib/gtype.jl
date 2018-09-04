@@ -9,11 +9,11 @@ const  GEnum = Int32
 const  GType = Csize_t
 
 struct GParamSpec
-  g_type_instance::Ptr{Nothing}
-  name::Ptr{UInt8}
-  flags::Cint
-  value_type::GType
-  owner_type::GType
+    g_type_instance::Ptr{Nothing}
+    name::Ptr{UInt8}
+    flags::Cint
+    value_type::GType
+    owner_type::GType
 end
 
 const fundamental_types = (

@@ -10,6 +10,9 @@
 
 GtkEntryLeaf() = GtkEntryLeaf(ccall((:gtk_entry_new, libgtk), Ptr{GObject}, ()))
 
+GtkEntryBufferLeaf() = GtkEntryLeaf(ccall((:gtk_entry_buffer_new, libgtk), Ptr{GObject},
+    (Ptr{UInt8},Cint),C_NULL,-1))
+
 GtkEntryCompletionLeaf() = GtkEntryCompletionLeaf(ccall((:gtk_entry_completion_new, libgtk), Ptr{GObject}, ()))
 
 complete(completion::GtkEntryCompletion) =

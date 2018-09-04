@@ -56,6 +56,7 @@ end
 @gtktype GtkStatusIcon
 #TODO: @gtktype GtkInfoBar
 @gtktype GtkEntry
+@gtktype GtkEntryBuffer
 @gtktype GtkEntryCompletion
 @gtktype GtkRange
 @gtktype GtkScale

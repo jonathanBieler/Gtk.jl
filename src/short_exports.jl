@@ -23,6 +23,7 @@ const ComboBoxText = GtkComboBoxText
 const CssProvider = GtkCssProvider
 const Dialog = GtkDialog
 const Entry = GtkEntry
+const EntryBuffer = GtkEntryBuffer
 const EntryCompletion = GtkEntryCompletion
 const Expander = GtkExpander
 const FileChooserDialog = GtkFileChooserDialog
@@ -154,6 +155,7 @@ export G_, GObject,
     TreeView,
     TreeViewColumn,
     VolumeButton,
+    Clipboard,
     Window
 
 const TypePlugin = GTypePlugin
